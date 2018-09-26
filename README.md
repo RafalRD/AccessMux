@@ -1,0 +1,3 @@
+# PZ
+
+Projekt zespołowy 
