@@ -1,0 +1,14 @@
+Temat: JumpHost dla usług w firmie
+
+Funkcjonalności:
+1. Logowanie autoryzacja
+2. Określenie ról użytkowników 
+(definicja ról w systemie dla konkretnych 
+działów firmy)
+Dana rola ma dostęp do określonej usługi.
+Jeden użytkownik może mieć jedną lub więcej ról.
+np. Dział finansów <- rola, ma dostęp do płatnika i systemu faktór,
+natomiast dział HR ma dostęp do pracuj.pl i firmowego konta LindekIn.
+3. Monitorowanie wejść na usługi (logowanie aktywności użytkowników)
+4. Strona internetowa - Java, Angular
+5. Baza MySQL
