@@ -7,7 +7,7 @@ Funkcjonalności:
 działów firmy)
 Dana rola ma dostęp do określonej usługi.
 Jeden użytkownik może mieć jedną lub więcej ról.
-np. Dział finansów <- rola, ma dostęp do płatnika i systemu faktór,
+np. Dział finansów <- rola, ma dostęp do płatnika i systemu faktur,
 natomiast dział HR ma dostęp do pracuj.pl i firmowego konta LindekIn.
 3. Monitorowanie wejść na usługi (logowanie aktywności użytkowników)
 4. Strona internetowa - Java, Angular
