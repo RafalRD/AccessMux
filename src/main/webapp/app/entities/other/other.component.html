@@ -1,0 +1,56 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="accessMuxApp.oTHER.home.title">OTHERS</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-other" [routerLink]="['/other/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="accessMuxApp.oTHER.home.createLabel">
+            Create new OTHER
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="oTHERS">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="accessMuxApp.oTHER.url">Url</span></th>
+            <th><span jhiTranslate="accessMuxApp.oTHER.description">Description</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let oTHER of oTHERS ;trackBy: trackId">
+                <td><a [routerLink]="['/other', oTHER.id, 'view' ]">{{oTHER.id}}</a></td>
+                <td>{{oTHER.url}}</td>
+                <td>{{oTHER.description}}</td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/other', oTHER.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/other', oTHER.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'other/'+ oTHER.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

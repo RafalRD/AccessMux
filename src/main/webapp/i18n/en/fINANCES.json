@@ -1,0 +1,23 @@
+
+{
+    "accessMuxApp": {
+        "fINANCES" : {
+            "home": {
+                "title": "FINANCES",
+                "createLabel": "Create a new FINANCES",
+                "createOrEditLabel": "Create or edit a FINANCES"
+            },
+            "created": "A new FINANCES is created with identifier {{ param }}",
+            "updated": "A FINANCES is updated with identifier {{ param }}",
+            "deleted": "A FINANCES is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete FINANCES {{ id }}?"
+            },
+            "detail": {
+                "title": "FINANCES"
+            },
+            "url": "Url",
+            "description": "Description"
+        }
+    }
+}

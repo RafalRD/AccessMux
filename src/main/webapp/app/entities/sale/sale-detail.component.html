@@ -1,0 +1,31 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="sALE">
+            <h2><span jhiTranslate="accessMuxApp.sALE.detail.title">SALE</span> {{sALE.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="accessMuxApp.sALE.url">Url</span></dt>
+                <dd>
+                    <span>{{sALE.url}}</span>
+                </dd>
+                <dt><span jhiTranslate="accessMuxApp.sALE.description">Description</span></dt>
+                <dd>
+                    <span>{{sALE.description}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/sale', sALE.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

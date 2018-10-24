@@ -1,0 +1,23 @@
+
+{
+    "accessMuxApp": {
+        "hR" : {
+            "home": {
+                "title": "HRS",
+                "createLabel": "Create a new HR",
+                "createOrEditLabel": "Create or edit a HR"
+            },
+            "created": "A new HR is created with identifier {{ param }}",
+            "updated": "A HR is updated with identifier {{ param }}",
+            "deleted": "A HR is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete HR {{ id }}?"
+            },
+            "detail": {
+                "title": "HR"
+            },
+            "url": "Url",
+            "description": "Description"
+        }
+    }
+}

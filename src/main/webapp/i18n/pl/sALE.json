@@ -1,0 +1,23 @@
+
+{
+    "accessMuxApp": {
+        "sALE" : {
+            "home": {
+                "title": "SALE",
+                "createLabel": "Dodaj SALE",
+                "createOrEditLabel": "Dodaj lub edytuj: SALE"
+            },
+            "created": "Utworzono nowy obiekt typu SALE z identyfikatorem {{ param }}",
+            "updated": "Uaktualniono obiekt typu SALE z identyfikatorem {{ param }}",
+            "deleted": "Usunięto obiekt typu SALE z identyfikatorem {{ param }}",
+            "delete": {
+                "question": "Czy na pewno chcesz usunąć SALE {{ id }}?"
+            },
+            "detail": {
+                "title": "SALE"
+            },
+            "url": "Url",
+            "description": "Description"
+        }
+    }
+}

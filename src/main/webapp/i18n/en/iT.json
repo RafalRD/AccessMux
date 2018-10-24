@@ -1,0 +1,23 @@
+
+{
+    "accessMuxApp": {
+        "iT" : {
+            "home": {
+                "title": "ITS",
+                "createLabel": "Create a new IT",
+                "createOrEditLabel": "Create or edit a IT"
+            },
+            "created": "A new IT is created with identifier {{ param }}",
+            "updated": "A IT is updated with identifier {{ param }}",
+            "deleted": "A IT is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete IT {{ id }}?"
+            },
+            "detail": {
+                "title": "IT"
+            },
+            "url": "Url",
+            "description": "Description"
+        }
+    }
+}

@@ -1,0 +1,31 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="oTHER">
+            <h2><span jhiTranslate="accessMuxApp.oTHER.detail.title">OTHER</span> {{oTHER.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="accessMuxApp.oTHER.url">Url</span></dt>
+                <dd>
+                    <span>{{oTHER.url}}</span>
+                </dd>
+                <dt><span jhiTranslate="accessMuxApp.oTHER.description">Description</span></dt>
+                <dd>
+                    <span>{{oTHER.description}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/other', oTHER.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,23 @@
+
+{
+    "accessMuxApp": {
+        "oTHER" : {
+            "home": {
+                "title": "OTHERS",
+                "createLabel": "Create a new OTHER",
+                "createOrEditLabel": "Create or edit a OTHER"
+            },
+            "created": "A new OTHER is created with identifier {{ param }}",
+            "updated": "A OTHER is updated with identifier {{ param }}",
+            "deleted": "A OTHER is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete OTHER {{ id }}?"
+            },
+            "detail": {
+                "title": "OTHER"
+            },
+            "url": "Url",
+            "description": "Description"
+        }
+    }
+}

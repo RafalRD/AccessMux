@@ -1,0 +1,23 @@
+
+{
+    "accessMuxApp": {
+        "fINANCES" : {
+            "home": {
+                "title": "FINANCES",
+                "createLabel": "Dodaj FINANCES",
+                "createOrEditLabel": "Dodaj lub edytuj: FINANCES"
+            },
+            "created": "Utworzono nowy obiekt typu FINANCES z identyfikatorem {{ param }}",
+            "updated": "Uaktualniono obiekt typu FINANCES z identyfikatorem {{ param }}",
+            "deleted": "Usunięto obiekt typu FINANCES z identyfikatorem {{ param }}",
+            "delete": {
+                "question": "Czy na pewno chcesz usunąć FINANCES {{ id }}?"
+            },
+            "detail": {
+                "title": "FINANCES"
+            },
+            "url": "Url",
+            "description": "Description"
+        }
+    }
+}

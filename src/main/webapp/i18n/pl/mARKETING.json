@@ -1,0 +1,23 @@
+
+{
+    "accessMuxApp": {
+        "mARKETING" : {
+            "home": {
+                "title": "MARKETING",
+                "createLabel": "Dodaj MARKETING",
+                "createOrEditLabel": "Dodaj lub edytuj: MARKETING"
+            },
+            "created": "Utworzono nowy obiekt typu MARKETING z identyfikatorem {{ param }}",
+            "updated": "Uaktualniono obiekt typu MARKETING z identyfikatorem {{ param }}",
+            "deleted": "Usunięto obiekt typu MARKETING z identyfikatorem {{ param }}",
+            "delete": {
+                "question": "Czy na pewno chcesz usunąć MARKETING {{ id }}?"
+            },
+            "detail": {
+                "title": "MARKETING"
+            },
+            "url": "Url",
+            "description": "Description"
+        }
+    }
+}

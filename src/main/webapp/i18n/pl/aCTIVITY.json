@@ -1,0 +1,25 @@
+
+{
+    "accessMuxApp": {
+        "aCTIVITY" : {
+            "home": {
+                "title": "ACTIVITY",
+                "createLabel": "Dodaj ACTIVITY",
+                "createOrEditLabel": "Dodaj lub edytuj: ACTIVITY"
+            },
+            "created": "Utworzono nowy obiekt typu ACTIVITY z identyfikatorem {{ param }}",
+            "updated": "Uaktualniono obiekt typu ACTIVITY z identyfikatorem {{ param }}",
+            "deleted": "Usunięto obiekt typu ACTIVITY z identyfikatorem {{ param }}",
+            "delete": {
+                "question": "Czy na pewno chcesz usunąć ACTIVITY {{ id }}?"
+            },
+            "detail": {
+                "title": "ACTIVITY"
+            },
+            "login": "Login",
+            "role": "Role",
+            "url": "Url",
+            "time": "Time"
+        }
+    }
+}

@@ -1,0 +1,23 @@
+
+{
+    "accessMuxApp": {
+        "oTHER" : {
+            "home": {
+                "title": "OTHER",
+                "createLabel": "Dodaj OTHER",
+                "createOrEditLabel": "Dodaj lub edytuj: OTHER"
+            },
+            "created": "Utworzono nowy obiekt typu OTHER z identyfikatorem {{ param }}",
+            "updated": "Uaktualniono obiekt typu OTHER z identyfikatorem {{ param }}",
+            "deleted": "Usunięto obiekt typu OTHER z identyfikatorem {{ param }}",
+            "delete": {
+                "question": "Czy na pewno chcesz usunąć OTHER {{ id }}?"
+            },
+            "detail": {
+                "title": "OTHER"
+            },
+            "url": "Url",
+            "description": "Description"
+        }
+    }
+}
