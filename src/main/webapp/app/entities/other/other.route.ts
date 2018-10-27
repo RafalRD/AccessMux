@@ -30,7 +30,7 @@ export const oTHERRoute: Routes = [
         path: 'other',
         component: OTHERComponent,
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: ['ROLE_ADMIN', 'ROLE_INNE'],
             pageTitle: 'accessMuxApp.oTHER.home.title'
         },
         canActivate: [UserRouteAccessService]
@@ -42,7 +42,7 @@ export const oTHERRoute: Routes = [
             oTHER: OTHERResolve
         },
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: ['ROLE_ADMIN', 'ROLE_INNE'],
             pageTitle: 'accessMuxApp.oTHER.home.title'
         },
         canActivate: [UserRouteAccessService]
@@ -54,7 +54,7 @@ export const oTHERRoute: Routes = [
             oTHER: OTHERResolve
         },
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: ['ROLE_ADMIN', 'ROLE_INNE'],
             pageTitle: 'accessMuxApp.oTHER.home.title'
         },
         canActivate: [UserRouteAccessService]
@@ -66,7 +66,7 @@ export const oTHERRoute: Routes = [
             oTHER: OTHERResolve
         },
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: ['ROLE_ADMIN', 'ROLE_INNE'],
             pageTitle: 'accessMuxApp.oTHER.home.title'
         },
         canActivate: [UserRouteAccessService]
@@ -81,7 +81,7 @@ export const oTHERPopupRoute: Routes = [
             oTHER: OTHERResolve
         },
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: ['ROLE_ADMIN', 'ROLE_INNE'],
             pageTitle: 'accessMuxApp.oTHER.home.title'
         },
         canActivate: [UserRouteAccessService],
