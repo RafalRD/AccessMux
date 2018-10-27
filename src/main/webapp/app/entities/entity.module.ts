@@ -1,6 +1,5 @@
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
-import { AccessMuxACTIVITYModule } from './activity/activity.module';
 import { AccessMuxITModule } from './it/it.module';
 import { AccessMuxHRModule } from './hr/hr.module';
 import { AccessMuxFINANCESModule } from './finances/finances.module';
@@ -12,7 +11,6 @@ import { AccessMuxOTHERModule } from './other/other.module';
 @NgModule({
     // prettier-ignore
     imports: [
-        AccessMuxACTIVITYModule,
         AccessMuxITModule,
         AccessMuxHRModule,
         AccessMuxFINANCESModule,
