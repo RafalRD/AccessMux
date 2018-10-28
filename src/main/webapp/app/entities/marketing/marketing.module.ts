@@ -11,17 +11,20 @@ import {
     mARKETINGRoute,
     mARKETINGPopupRoute
 } from './';
+import { BrowserModule } from '@angular/platform-browser';
+import { MarketingPipe } from 'app/entities/marketing/marketingPipe';
 
 const ENTITY_STATES = [...mARKETINGRoute, ...mARKETINGPopupRoute];
 
 @NgModule({
-    imports: [AccessMuxSharedModule, RouterModule.forChild(ENTITY_STATES)],
+    imports: [AccessMuxSharedModule, RouterModule.forChild(ENTITY_STATES), BrowserModule],
     declarations: [
         MARKETINGComponent,
         MARKETINGDetailComponent,
         MARKETINGUpdateComponent,
         MARKETINGDeleteDialogComponent,
-        MARKETINGDeletePopupComponent
+        MARKETINGDeletePopupComponent,
+        MarketingPipe
     ],
     entryComponents: [MARKETINGComponent, MARKETINGUpdateComponent, MARKETINGDeleteDialogComponent, MARKETINGDeletePopupComponent],
     schemas: [CUSTOM_ELEMENTS_SCHEMA]

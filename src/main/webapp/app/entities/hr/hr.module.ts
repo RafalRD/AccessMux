@@ -11,12 +11,14 @@ import {
     hRRoute,
     hRPopupRoute
 } from './';
+import { HrPipe } from 'app/entities/hr/hrPipe';
+import { BrowserModule } from '@angular/platform-browser';
 
 const ENTITY_STATES = [...hRRoute, ...hRPopupRoute];
 
 @NgModule({
-    imports: [AccessMuxSharedModule, RouterModule.forChild(ENTITY_STATES)],
-    declarations: [HRComponent, HRDetailComponent, HRUpdateComponent, HRDeleteDialogComponent, HRDeletePopupComponent],
+    imports: [AccessMuxSharedModule, RouterModule.forChild(ENTITY_STATES), BrowserModule],
+    declarations: [HRComponent, HRDetailComponent, HRUpdateComponent, HRDeleteDialogComponent, HRDeletePopupComponent, HrPipe],
     entryComponents: [HRComponent, HRUpdateComponent, HRDeleteDialogComponent, HRDeletePopupComponent],
     schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

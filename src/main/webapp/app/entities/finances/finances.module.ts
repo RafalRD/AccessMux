@@ -11,17 +11,20 @@ import {
     fINANCESRoute,
     fINANCESPopupRoute
 } from './';
+import { BrowserModule } from '@angular/platform-browser';
+import { FinansePipe } from 'app/entities/finances/finansePipe';
 
 const ENTITY_STATES = [...fINANCESRoute, ...fINANCESPopupRoute];
 
 @NgModule({
-    imports: [AccessMuxSharedModule, RouterModule.forChild(ENTITY_STATES)],
+    imports: [AccessMuxSharedModule, RouterModule.forChild(ENTITY_STATES), BrowserModule],
     declarations: [
         FINANCESComponent,
         FINANCESDetailComponent,
         FINANCESUpdateComponent,
         FINANCESDeleteDialogComponent,
-        FINANCESDeletePopupComponent
+        FINANCESDeletePopupComponent,
+        FinansePipe
     ],
     entryComponents: [FINANCESComponent, FINANCESUpdateComponent, FINANCESDeleteDialogComponent, FINANCESDeletePopupComponent],
     schemas: [CUSTOM_ELEMENTS_SCHEMA]

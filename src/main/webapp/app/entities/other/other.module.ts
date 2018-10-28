@@ -11,12 +11,21 @@ import {
     oTHERRoute,
     oTHERPopupRoute
 } from './';
+import { BrowserModule } from '@angular/platform-browser';
+import { OtherPipe } from 'app/entities/other/otherPipe';
 
 const ENTITY_STATES = [...oTHERRoute, ...oTHERPopupRoute];
 
 @NgModule({
-    imports: [AccessMuxSharedModule, RouterModule.forChild(ENTITY_STATES)],
-    declarations: [OTHERComponent, OTHERDetailComponent, OTHERUpdateComponent, OTHERDeleteDialogComponent, OTHERDeletePopupComponent],
+    imports: [AccessMuxSharedModule, RouterModule.forChild(ENTITY_STATES), BrowserModule],
+    declarations: [
+        OTHERComponent,
+        OTHERDetailComponent,
+        OTHERUpdateComponent,
+        OTHERDeleteDialogComponent,
+        OTHERDeletePopupComponent,
+        OtherPipe
+    ],
     entryComponents: [OTHERComponent, OTHERUpdateComponent, OTHERDeleteDialogComponent, OTHERDeletePopupComponent],
     schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
