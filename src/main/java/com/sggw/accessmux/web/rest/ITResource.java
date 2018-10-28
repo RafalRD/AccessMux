@@ -1,6 +1,7 @@
 package com.sggw.accessmux.web.rest;
 
 import com.codahale.metrics.annotation.Timed;
+import com.sggw.accessmux.security.SecurityUtils;
 import com.sggw.accessmux.service.ITService;
 import com.sggw.accessmux.web.rest.errors.BadRequestAlertException;
 import com.sggw.accessmux.web.rest.util.HeaderUtil;
@@ -17,6 +18,9 @@ import java.net.URISyntaxException;
 
 import java.util.List;
 import java.util.Optional;
+
+import static com.sggw.accessmux.security.AuthoritiesConstants.ADMIN;
+import static com.sggw.accessmux.security.AuthoritiesConstants.IT;
 
 /**
  * REST controller for managing IT.
@@ -45,6 +49,11 @@ public class ITResource {
     @PostMapping("/its")
     @Timed
     public ResponseEntity<ITDTO> createIT(@Valid @RequestBody ITDTO iTDTO) throws URISyntaxException {
+
+        if (!(SecurityUtils.isCurrentUserInRole(IT) || SecurityUtils.isCurrentUserInRole(ADMIN))) {
+            return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert(ENTITY_NAME, "http.403","You need to be logged!")).body(null);
+        }
+
         log.debug("REST request to save IT : {}", iTDTO);
         if (iTDTO.getId() != null) {
             throw new BadRequestAlertException("A new iT cannot already have an ID", ENTITY_NAME, "idexists");
@@ -67,6 +76,11 @@ public class ITResource {
     @PutMapping("/its")
     @Timed
     public ResponseEntity<ITDTO> updateIT(@Valid @RequestBody ITDTO iTDTO) throws URISyntaxException {
+
+        if (!(SecurityUtils.isCurrentUserInRole(IT) || SecurityUtils.isCurrentUserInRole(ADMIN))) {
+            return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert(ENTITY_NAME, "http.403","You need to be logged!")).body(null);
+        }
+
         log.debug("REST request to update IT : {}", iTDTO);
         if (iTDTO.getId() == null) {
             throw new BadRequestAlertException("Invalid id", ENTITY_NAME, "idnull");
@@ -85,6 +99,11 @@ public class ITResource {
     @GetMapping("/its")
     @Timed
     public List<ITDTO> getAllITS() {
+
+        if (!(SecurityUtils.isCurrentUserInRole(IT) || SecurityUtils.isCurrentUserInRole(ADMIN))) {
+            return null;
+        }
+
         log.debug("REST request to get all ITS");
         return iTService.findAll();
     }
@@ -98,6 +117,11 @@ public class ITResource {
     @GetMapping("/its/{id}")
     @Timed
     public ResponseEntity<ITDTO> getIT(@PathVariable Long id) {
+
+        if (!(SecurityUtils.isCurrentUserInRole(IT) || SecurityUtils.isCurrentUserInRole(ADMIN))) {
+            return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert(ENTITY_NAME, "http.403","You need to be logged!")).body(null);
+        }
+
         log.debug("REST request to get IT : {}", id);
         Optional<ITDTO> iTDTO = iTService.findOne(id);
         return ResponseUtil.wrapOrNotFound(iTDTO);
@@ -112,6 +136,11 @@ public class ITResource {
     @DeleteMapping("/its/{id}")
     @Timed
     public ResponseEntity<Void> deleteIT(@PathVariable Long id) {
+
+        if (!(SecurityUtils.isCurrentUserInRole(IT) || SecurityUtils.isCurrentUserInRole(ADMIN))) {
+            return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert(ENTITY_NAME, "http.403","You need to be logged!")).body(null);
+        }
+
         log.debug("REST request to delete IT : {}", id);
         iTService.delete(id);
         return ResponseEntity.ok().headers(HeaderUtil.createEntityDeletionAlert(ENTITY_NAME, id.toString())).build();
