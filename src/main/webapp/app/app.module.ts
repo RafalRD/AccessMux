@@ -20,6 +20,7 @@ import { StateStorageService } from 'app/core/auth/state-storage.service';
 import * as moment from 'moment';
 // jhipster-needle-angular-add-module-import JHipster will add new module here
 import { JhiMainComponent, NavbarComponent, FooterComponent, PageRibbonComponent, ActiveMenuDirective, ErrorComponent } from './layouts';
+import { HalloweenComponent } from './halloween/halloween.component';
 
 @NgModule({
     imports: [
@@ -33,7 +34,15 @@ import { JhiMainComponent, NavbarComponent, FooterComponent, PageRibbonComponent
         AccessMuxEntityModule
         // jhipster-needle-angular-add-module JHipster will add new module here
     ],
-    declarations: [JhiMainComponent, NavbarComponent, ErrorComponent, PageRibbonComponent, ActiveMenuDirective, FooterComponent],
+    declarations: [
+        JhiMainComponent,
+        NavbarComponent,
+        ErrorComponent,
+        PageRibbonComponent,
+        ActiveMenuDirective,
+        FooterComponent,
+        HalloweenComponent
+    ],
     providers: [
         {
             provide: HTTP_INTERCEPTORS,
