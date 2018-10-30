@@ -34,7 +34,7 @@ spec:
                 done
       containers:
       - name: accessmux-app
-        image: registry.gitlab.com/kuba2915/accessmux:master/accessmux
+        image: registry.gitlab.com/kuba2915/accessmux:master
         env:
         - name: SPRING_PROFILES_ACTIVE
           value: prod
