@@ -4,6 +4,7 @@ cache:
     key: "$CI_COMMIT_REF_NAME"
     paths:
         - .maven/
+
 stages:
     - build
     - test
