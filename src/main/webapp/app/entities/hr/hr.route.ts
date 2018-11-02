@@ -30,7 +30,7 @@ export const hRRoute: Routes = [
         path: 'hr',
         component: HRComponent,
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: ['ROLE_ADMIN', 'ROLE_HR'],
             pageTitle: 'accessMuxApp.hR.home.title'
         },
         canActivate: [UserRouteAccessService]
@@ -42,7 +42,7 @@ export const hRRoute: Routes = [
             hR: HRResolve
         },
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: ['ROLE_ADMIN', 'ROLE_HR'],
             pageTitle: 'accessMuxApp.hR.home.title'
         },
         canActivate: [UserRouteAccessService]
@@ -54,7 +54,7 @@ export const hRRoute: Routes = [
             hR: HRResolve
         },
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: ['ROLE_ADMIN', 'ROLE_HR'],
             pageTitle: 'accessMuxApp.hR.home.title'
         },
         canActivate: [UserRouteAccessService]
@@ -66,7 +66,7 @@ export const hRRoute: Routes = [
             hR: HRResolve
         },
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: ['ROLE_ADMIN', 'ROLE_HR'],
             pageTitle: 'accessMuxApp.hR.home.title'
         },
         canActivate: [UserRouteAccessService]
@@ -81,7 +81,7 @@ export const hRPopupRoute: Routes = [
             hR: HRResolve
         },
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: ['ROLE_ADMIN', 'ROLE_HR'],
             pageTitle: 'accessMuxApp.hR.home.title'
         },
         canActivate: [UserRouteAccessService],
