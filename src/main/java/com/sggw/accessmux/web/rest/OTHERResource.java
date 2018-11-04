@@ -1,6 +1,7 @@
 package com.sggw.accessmux.web.rest;
 
 import com.codahale.metrics.annotation.Timed;
+import com.sggw.accessmux.security.SecurityUtils;
 import com.sggw.accessmux.service.OTHERService;
 import com.sggw.accessmux.web.rest.errors.BadRequestAlertException;
 import com.sggw.accessmux.web.rest.util.HeaderUtil;
@@ -17,6 +18,9 @@ import java.net.URISyntaxException;
 
 import java.util.List;
 import java.util.Optional;
+
+import static com.sggw.accessmux.security.AuthoritiesConstants.ADMIN;
+import static com.sggw.accessmux.security.AuthoritiesConstants.IT;
 
 /**
  * REST controller for managing OTHER.
@@ -45,6 +49,11 @@ public class OTHERResource {
     @PostMapping("/others")
     @Timed
     public ResponseEntity<OTHERDTO> createOTHER(@Valid @RequestBody OTHERDTO oTHERDTO) throws URISyntaxException {
+
+        if (!(SecurityUtils.isCurrentUserInRole(IT) || SecurityUtils.isCurrentUserInRole(ADMIN))) {
+            return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert(ENTITY_NAME, "http.403","You need to be logged!")).body(null);
+        }
+
         log.debug("REST request to save OTHER : {}", oTHERDTO);
         if (oTHERDTO.getId() != null) {
             throw new BadRequestAlertException("A new oTHER cannot already have an ID", ENTITY_NAME, "idexists");
@@ -67,6 +76,11 @@ public class OTHERResource {
     @PutMapping("/others")
     @Timed
     public ResponseEntity<OTHERDTO> updateOTHER(@Valid @RequestBody OTHERDTO oTHERDTO) throws URISyntaxException {
+
+        if (!(SecurityUtils.isCurrentUserInRole(IT) || SecurityUtils.isCurrentUserInRole(ADMIN))) {
+            return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert(ENTITY_NAME, "http.403","You need to be logged!")).body(null);
+        }
+
         log.debug("REST request to update OTHER : {}", oTHERDTO);
         if (oTHERDTO.getId() == null) {
             throw new BadRequestAlertException("Invalid id", ENTITY_NAME, "idnull");
@@ -85,6 +99,11 @@ public class OTHERResource {
     @GetMapping("/others")
     @Timed
     public List<OTHERDTO> getAllOTHERS() {
+
+        if (!(SecurityUtils.isCurrentUserInRole(IT) || SecurityUtils.isCurrentUserInRole(ADMIN))) {
+            return null;
+        }
+
         log.debug("REST request to get all OTHERS");
         return oTHERService.findAll();
     }
@@ -98,6 +117,11 @@ public class OTHERResource {
     @GetMapping("/others/{id}")
     @Timed
     public ResponseEntity<OTHERDTO> getOTHER(@PathVariable Long id) {
+
+        if (!(SecurityUtils.isCurrentUserInRole(IT) || SecurityUtils.isCurrentUserInRole(ADMIN))) {
+            return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert(ENTITY_NAME, "http.403","You need to be logged!")).body(null);
+        }
+
         log.debug("REST request to get OTHER : {}", id);
         Optional<OTHERDTO> oTHERDTO = oTHERService.findOne(id);
         return ResponseUtil.wrapOrNotFound(oTHERDTO);
@@ -112,6 +136,11 @@ public class OTHERResource {
     @DeleteMapping("/others/{id}")
     @Timed
     public ResponseEntity<Void> deleteOTHER(@PathVariable Long id) {
+
+        if (!(SecurityUtils.isCurrentUserInRole(IT) || SecurityUtils.isCurrentUserInRole(ADMIN))) {
+            return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert(ENTITY_NAME, "http.403","You need to be logged!")).body(null);
+        }
+
         log.debug("REST request to delete OTHER : {}", id);
         oTHERService.delete(id);
         return ResponseEntity.ok().headers(HeaderUtil.createEntityDeletionAlert(ENTITY_NAME, id.toString())).build();
