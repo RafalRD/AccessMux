@@ -1,6 +1,7 @@
 package com.sggw.accessmux.web.rest;
 
 import com.codahale.metrics.annotation.Timed;
+import com.sggw.accessmux.security.SecurityUtils;
 import com.sggw.accessmux.service.SALEService;
 import com.sggw.accessmux.web.rest.errors.BadRequestAlertException;
 import com.sggw.accessmux.web.rest.util.HeaderUtil;
@@ -17,6 +18,9 @@ import java.net.URISyntaxException;
 
 import java.util.List;
 import java.util.Optional;
+
+import static com.sggw.accessmux.security.AuthoritiesConstants.ADMIN;
+import static com.sggw.accessmux.security.AuthoritiesConstants.SPRZEDAZ;
 
 /**
  * REST controller for managing SALE.
@@ -45,6 +49,10 @@ public class SALEResource {
     @PostMapping("/sales")
     @Timed
     public ResponseEntity<SALEDTO> createSALE(@Valid @RequestBody SALEDTO sALEDTO) throws URISyntaxException {
+        if (!(SecurityUtils.isCurrentUserInRole(SPRZEDAZ) || SecurityUtils.isCurrentUserInRole(ADMIN))) {
+            return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert(ENTITY_NAME, "http.403","You need to be logged!")).body(null);
+        }
+
         log.debug("REST request to save SALE : {}", sALEDTO);
         if (sALEDTO.getId() != null) {
             throw new BadRequestAlertException("A new sALE cannot already have an ID", ENTITY_NAME, "idexists");
@@ -67,6 +75,9 @@ public class SALEResource {
     @PutMapping("/sales")
     @Timed
     public ResponseEntity<SALEDTO> updateSALE(@Valid @RequestBody SALEDTO sALEDTO) throws URISyntaxException {
+        if (!(SecurityUtils.isCurrentUserInRole(SPRZEDAZ) || SecurityUtils.isCurrentUserInRole(ADMIN))) {
+            return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert(ENTITY_NAME, "http.403","You need to be logged!")).body(null);
+        }
         log.debug("REST request to update SALE : {}", sALEDTO);
         if (sALEDTO.getId() == null) {
             throw new BadRequestAlertException("Invalid id", ENTITY_NAME, "idnull");
@@ -85,6 +96,10 @@ public class SALEResource {
     @GetMapping("/sales")
     @Timed
     public List<SALEDTO> getAllSALES() {
+        if (!(SecurityUtils.isCurrentUserInRole(SPRZEDAZ) || SecurityUtils.isCurrentUserInRole(ADMIN))) {
+            return null;
+        }
+
         log.debug("REST request to get all SALES");
         return sALEService.findAll();
     }
@@ -98,6 +113,10 @@ public class SALEResource {
     @GetMapping("/sales/{id}")
     @Timed
     public ResponseEntity<SALEDTO> getSALE(@PathVariable Long id) {
+        if (!(SecurityUtils.isCurrentUserInRole(SPRZEDAZ) || SecurityUtils.isCurrentUserInRole(ADMIN))) {
+            return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert(ENTITY_NAME, "http.403","You need to be logged!")).body(null);
+        }
+
         log.debug("REST request to get SALE : {}", id);
         Optional<SALEDTO> sALEDTO = sALEService.findOne(id);
         return ResponseUtil.wrapOrNotFound(sALEDTO);
@@ -112,6 +131,10 @@ public class SALEResource {
     @DeleteMapping("/sales/{id}")
     @Timed
     public ResponseEntity<Void> deleteSALE(@PathVariable Long id) {
+        if (!(SecurityUtils.isCurrentUserInRole(SPRZEDAZ) || SecurityUtils.isCurrentUserInRole(ADMIN))) {
+            return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert(ENTITY_NAME, "http.403","You need to be logged!")).body(null);
+        }
+
         log.debug("REST request to delete SALE : {}", id);
         sALEService.delete(id);
         return ResponseEntity.ok().headers(HeaderUtil.createEntityDeletionAlert(ENTITY_NAME, id.toString())).build();

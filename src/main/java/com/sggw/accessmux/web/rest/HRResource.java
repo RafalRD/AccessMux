@@ -1,6 +1,7 @@
 package com.sggw.accessmux.web.rest;
 
 import com.codahale.metrics.annotation.Timed;
+import com.sggw.accessmux.security.SecurityUtils;
 import com.sggw.accessmux.service.HRService;
 import com.sggw.accessmux.web.rest.errors.BadRequestAlertException;
 import com.sggw.accessmux.web.rest.util.HeaderUtil;
@@ -17,6 +18,9 @@ import java.net.URISyntaxException;
 
 import java.util.List;
 import java.util.Optional;
+
+import static com.sggw.accessmux.security.AuthoritiesConstants.ADMIN;
+import static com.sggw.accessmux.security.AuthoritiesConstants.HR;
 
 /**
  * REST controller for managing HR.
@@ -45,6 +49,9 @@ public class HRResource {
     @PostMapping("/hrs")
     @Timed
     public ResponseEntity<HRDTO> createHR(@Valid @RequestBody HRDTO hRDTO) throws URISyntaxException {
+        if (!(SecurityUtils.isCurrentUserInRole(HR) || SecurityUtils.isCurrentUserInRole(ADMIN))) {
+            return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert(ENTITY_NAME, "http.403","You need to be logged!")).body(null);
+        }
         log.debug("REST request to save HR : {}", hRDTO);
         if (hRDTO.getId() != null) {
             throw new BadRequestAlertException("A new hR cannot already have an ID", ENTITY_NAME, "idexists");
@@ -67,6 +74,10 @@ public class HRResource {
     @PutMapping("/hrs")
     @Timed
     public ResponseEntity<HRDTO> updateHR(@Valid @RequestBody HRDTO hRDTO) throws URISyntaxException {
+        if (!(SecurityUtils.isCurrentUserInRole(HR) || SecurityUtils.isCurrentUserInRole(ADMIN))) {
+            return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert(ENTITY_NAME, "http.403","You need to be logged!")).body(null);
+        }
+
         log.debug("REST request to update HR : {}", hRDTO);
         if (hRDTO.getId() == null) {
             throw new BadRequestAlertException("Invalid id", ENTITY_NAME, "idnull");
@@ -85,6 +96,10 @@ public class HRResource {
     @GetMapping("/hrs")
     @Timed
     public List<HRDTO> getAllHRS() {
+        if (!(SecurityUtils.isCurrentUserInRole(HR) || SecurityUtils.isCurrentUserInRole(ADMIN))) {
+            return null;
+        }
+
         log.debug("REST request to get all HRS");
         return hRService.findAll();
     }
@@ -98,6 +113,9 @@ public class HRResource {
     @GetMapping("/hrs/{id}")
     @Timed
     public ResponseEntity<HRDTO> getHR(@PathVariable Long id) {
+        if (!(SecurityUtils.isCurrentUserInRole(HR) || SecurityUtils.isCurrentUserInRole(ADMIN))) {
+            return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert(ENTITY_NAME, "http.403","You need to be logged!")).body(null);
+        }
         log.debug("REST request to get HR : {}", id);
         Optional<HRDTO> hRDTO = hRService.findOne(id);
         return ResponseUtil.wrapOrNotFound(hRDTO);
@@ -112,6 +130,10 @@ public class HRResource {
     @DeleteMapping("/hrs/{id}")
     @Timed
     public ResponseEntity<Void> deleteHR(@PathVariable Long id) {
+        if (!(SecurityUtils.isCurrentUserInRole(HR) || SecurityUtils.isCurrentUserInRole(ADMIN))) {
+            return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert(ENTITY_NAME, "http.403","You need to be logged!")).body(null);
+        }
+
         log.debug("REST request to delete HR : {}", id);
         hRService.delete(id);
         return ResponseEntity.ok().headers(HeaderUtil.createEntityDeletionAlert(ENTITY_NAME, id.toString())).build();
