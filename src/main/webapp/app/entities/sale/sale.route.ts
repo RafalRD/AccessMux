@@ -30,7 +30,7 @@ export const sALERoute: Routes = [
         path: 'sale',
         component: SALEComponent,
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: ['ROLE_ADMIN', 'ROLE_SPRZEDAZ'],
             pageTitle: 'accessMuxApp.sALE.home.title'
         },
         canActivate: [UserRouteAccessService]
@@ -42,7 +42,7 @@ export const sALERoute: Routes = [
             sALE: SALEResolve
         },
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: ['ROLE_ADMIN', 'ROLE_SPRZEDAZ'],
             pageTitle: 'accessMuxApp.sALE.home.title'
         },
         canActivate: [UserRouteAccessService]
@@ -54,7 +54,7 @@ export const sALERoute: Routes = [
             sALE: SALEResolve
         },
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: ['ROLE_ADMIN', 'ROLE_SPRZEDAZ'],
             pageTitle: 'accessMuxApp.sALE.home.title'
         },
         canActivate: [UserRouteAccessService]
@@ -66,7 +66,7 @@ export const sALERoute: Routes = [
             sALE: SALEResolve
         },
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: ['ROLE_ADMIN', 'ROLE_SPRZEDAZ'],
             pageTitle: 'accessMuxApp.sALE.home.title'
         },
         canActivate: [UserRouteAccessService]
@@ -81,7 +81,7 @@ export const sALEPopupRoute: Routes = [
             sALE: SALEResolve
         },
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: ['ROLE_ADMIN', 'ROLE_SPRZEDAZ'],
             pageTitle: 'accessMuxApp.sALE.home.title'
         },
         canActivate: [UserRouteAccessService],
