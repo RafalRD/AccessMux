@@ -30,7 +30,7 @@ export const mARKETINGRoute: Routes = [
         path: 'marketing',
         component: MARKETINGComponent,
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: ['ROLE_ADMIN', 'ROLE_MARKETING'],
             pageTitle: 'accessMuxApp.mARKETING.home.title'
         },
         canActivate: [UserRouteAccessService]
@@ -42,7 +42,7 @@ export const mARKETINGRoute: Routes = [
             mARKETING: MARKETINGResolve
         },
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: ['ROLE_ADMIN', 'ROLE_MARKETING'],
             pageTitle: 'accessMuxApp.mARKETING.home.title'
         },
         canActivate: [UserRouteAccessService]
@@ -54,7 +54,7 @@ export const mARKETINGRoute: Routes = [
             mARKETING: MARKETINGResolve
         },
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: ['ROLE_ADMIN', 'ROLE_MARKETING'],
             pageTitle: 'accessMuxApp.mARKETING.home.title'
         },
         canActivate: [UserRouteAccessService]
@@ -66,7 +66,7 @@ export const mARKETINGRoute: Routes = [
             mARKETING: MARKETINGResolve
         },
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: ['ROLE_ADMIN', 'ROLE_MARKETING'],
             pageTitle: 'accessMuxApp.mARKETING.home.title'
         },
         canActivate: [UserRouteAccessService]
@@ -81,7 +81,7 @@ export const mARKETINGPopupRoute: Routes = [
             mARKETING: MARKETINGResolve
         },
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: ['ROLE_ADMIN', 'ROLE_MARKETING'],
             pageTitle: 'accessMuxApp.mARKETING.home.title'
         },
         canActivate: [UserRouteAccessService],
