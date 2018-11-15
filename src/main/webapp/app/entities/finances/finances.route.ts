@@ -30,7 +30,7 @@ export const fINANCESRoute: Routes = [
         path: 'finances',
         component: FINANCESComponent,
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: ['ROLE_ADMIN', 'ROLE_FINANSE'],
             pageTitle: 'accessMuxApp.fINANCES.home.title'
         },
         canActivate: [UserRouteAccessService]
@@ -42,7 +42,7 @@ export const fINANCESRoute: Routes = [
             fINANCES: FINANCESResolve
         },
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: ['ROLE_ADMIN', 'ROLE_FINANSE'],
             pageTitle: 'accessMuxApp.fINANCES.home.title'
         },
         canActivate: [UserRouteAccessService]
@@ -54,7 +54,7 @@ export const fINANCESRoute: Routes = [
             fINANCES: FINANCESResolve
         },
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: ['ROLE_ADMIN', 'ROLE_FINANSE'],
             pageTitle: 'accessMuxApp.fINANCES.home.title'
         },
         canActivate: [UserRouteAccessService]
@@ -66,7 +66,7 @@ export const fINANCESRoute: Routes = [
             fINANCES: FINANCESResolve
         },
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: ['ROLE_ADMIN', 'ROLE_FINANSE'],
             pageTitle: 'accessMuxApp.fINANCES.home.title'
         },
         canActivate: [UserRouteAccessService]
@@ -81,7 +81,7 @@ export const fINANCESPopupRoute: Routes = [
             fINANCES: FINANCESResolve
         },
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: ['ROLE_ADMIN', 'ROLE_FINANSE'],
             pageTitle: 'accessMuxApp.fINANCES.home.title'
         },
         canActivate: [UserRouteAccessService],
