@@ -81,7 +81,6 @@ docker-push:
         
 deploy:
   stage: deploy
-  when: manual
   only:
     - master
   environment:
