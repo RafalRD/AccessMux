@@ -93,8 +93,8 @@ deploy:
 
     # - "curl -X POST -H \"Content-Type: application/json\" -d '{\"attachments\": [{\"text\": \"Beware, $CI_COMMIT_SHA (malwarecage) is being deployed to production.\", \"color\": \"#a9fbd7\"}]}' $MATTERMOST_HOOK"
     
-    - ./kubectl config set-cluster cert --server="https://adres" --insecure-skip-tls-verify=true
-    - ./kubectl config set-credentials gitlab-ci --token "$KUBE_TOKEN"
+    - ./kubectl config set-cluster cert --server="https://api.kube.jaylab.pl" --insecure-skip-tls-verify=true
+    - ./kubectl config set-credentials k8s_cluster --token "$KUBE_TOKEN"
     - ./kubectl config set-context default --cluster=nazwa --user=gitlab-ci
     - ./kubectl config use-context default
     - ./kubectl set image deployment.v1.apps/accessmux accessmux-container=registry.gitlab.com/kuba2915/accessmux:master
