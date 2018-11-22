@@ -3,7 +3,7 @@
     <h4 class="modal-title" jhiTranslate="metrics.jvm.threads.dump.title">Threads dump</h4>
     <button type="button" class="close" (click)="activeModal.dismiss('closed')">&times;</button>
 </div>
-<div class="modal-body">
+<div class="modal-body" style="padding: 1.6%;">
     <span class="badge badge-primary" (click)="threadDumpFilter = {}">All&nbsp;<span class="badge badge-pill badge-default">{{threadDumpAll}}</span></span>&nbsp;
     <span class="badge badge-success" (click)="threadDumpFilter = {threadState: 'RUNNABLE'}">Runnable&nbsp;<span class="badge badge-pill badge-default">{{threadDumpRunnable}}</span></span>&nbsp;
     <span class="badge badge-info" (click)="threadDumpFilter = {threadState: 'WAITING'}">Waiting&nbsp;<span class="badge badge-pill badge-default">{{threadDumpWaiting}}</span></span>&nbsp;

@@ -1,6 +1,7 @@
 {
     "home": {
         "title": "AccessMux",
+        "greeting": "Zapraszamy",
         "subtitle": "To jest twoja strona domowa",
         "logged": {
             "message": "Jesteś zalogowany jako użytkownik \"{{username}}\"."

@@ -4,7 +4,7 @@
         <span></span>
     </div>
     <div [ngSwitch]="isAuthenticated()" class="welcome">
-        <span *ngSwitchCase="true" class="text1">Welcome in</span>
+        <span *ngSwitchCase="true" class="text1" jhiTranslate="home.greeting">Welcome in</span>
         <span *ngSwitchCase="true" class="text2">{{account.login}}</span>
     </div>
 </div>
