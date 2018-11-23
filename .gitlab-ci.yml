@@ -95,4 +95,4 @@ deploy:
     - ./kubectl config set-credentials gitlab-ci --token "$KUBE_TOKEN"
     - ./kubectl config set-context default --cluster=kube_jaylab --user=gitlab-ci
     - ./kubectl config use-context default
-    - ./kubectl set image deployment.v1.apps/accessmux accessmux-container=registry.gitlab.com/kuba2915/accessmux:master
+    - ./kubectl set image deployment.v1.apps/accessmux accessmux-app=registry.gitlab.com/kuba2915/accessmux:master
