@@ -1,8 +1,8 @@
 <div class="frame">
-    <div *ngIf="finances" >
+    <div *ngIf="fINANCES" >
         <jhi-alert-error></jhi-alert-error>
         <div class="resp-container">
-            <iframe class="resp-iframe" [src]="finances.url | finanseSafe" gesture="media"  allow="encrypted-media" sandbox="allow-forms allow-same-origin allow-pointer-lock allow-scripts allow-popups allow-popups-to-escape-sandbox allow-modals allow-top-navigation" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true" scrolling="auto"></iframe>
+            <iframe class="resp-iframe" [src]="fINANCES.url | finanseSafe" gesture="media"  allow="encrypted-media" sandbox="allow-forms allow-same-origin allow-pointer-lock allow-scripts allow-popups allow-popups-to-escape-sandbox allow-modals allow-top-navigation" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true" scrolling="auto"></iframe>
         </div>
     </div>
 </div>
