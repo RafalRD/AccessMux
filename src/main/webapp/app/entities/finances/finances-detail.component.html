@@ -1,31 +1,8 @@
-<div class="row justify-content-center" style="padding: 1.6%;">
-    <div class="col-8">
-        <div *ngIf="fINANCES">
-            <h2><span jhiTranslate="accessMuxApp.fINANCES.detail.title">FINANCES</span> {{fINANCES.id}}</h2>
-            <hr>
-            <jhi-alert-error></jhi-alert-error>
-            <dl class="row-md jh-entity-details">
-                <dt><span jhiTranslate="accessMuxApp.fINANCES.url">Url</span></dt>
-                <dd>
-                    <span>{{fINANCES.url}}</span>
-                </dd>
-                <dt><span jhiTranslate="accessMuxApp.fINANCES.description">Description</span></dt>
-                <dd>
-                    <span>{{fINANCES.description}}</span>
-                </dd>
-            </dl>
-
-            <button type="submit"
-                    (click)="previousState()"
-                    class="btn btn-info">
-                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
-            </button>
-
-            <button type="button"
-                    [routerLink]="['/finances', fINANCES.id, 'edit']"
-                    class="btn btn-primary">
-                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
-            </button>
+<div class="frame">
+    <div *ngIf="fINANCES" >
+        <jhi-alert-error></jhi-alert-error>
+        <div class="resp-container">
+            <iframe class="resp-iframe" [src]="fINANCES.url | finanseSafe" gesture="media"  allow="encrypted-media" sandbox="allow-forms allow-same-origin allow-pointer-lock allow-scripts allow-popups allow-popups-to-escape-sandbox allow-modals allow-top-navigation" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true" scrolling="auto"></iframe>
         </div>
     </div>
 </div>
