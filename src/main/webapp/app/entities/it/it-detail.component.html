@@ -1,31 +1,8 @@
-<div class="row justify-content-center" >
-    <div class="col-8">
-        <div *ngIf="iT">
-            <h2><span jhiTranslate="accessMuxApp.iT.detail.title">IT</span> {{iT.id}}</h2>
-            <hr>
-            <jhi-alert-error></jhi-alert-error>
-            <dl class="row-md jh-entity-details">
-                <dt><span jhiTranslate="accessMuxApp.iT.url">Url</span></dt>
-                <dd>
-                    <span>{{iT.url}}</span>
-                </dd>
-                <dt><span jhiTranslate="accessMuxApp.iT.description">Description</span></dt>
-                <dd>
-                    <span>{{iT.description}}</span>
-                </dd>
-            </dl>
-
-            <button type="submit"
-                    (click)="previousState()"
-                    class="btn btn-info">
-                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
-            </button>
-
-            <button type="button"
-                    [routerLink]="['/it', iT.id, 'edit']"
-                    class="btn btn-primary">
-                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
-            </button>
+<div class="frame">
+    <div *ngIf="iT" >
+        <jhi-alert-error></jhi-alert-error>
+        <div class="resp-container">
+            <iframe class="resp-iframe" [src]="iT.url | itSafe" gesture="media"  allow="encrypted-media" sandbox="allow-forms allow-same-origin allow-pointer-lock allow-scripts allow-popups allow-popups-to-escape-sandbox allow-modals allow-top-navigation" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true" scrolling="auto"></iframe>
         </div>
     </div>
 </div>
