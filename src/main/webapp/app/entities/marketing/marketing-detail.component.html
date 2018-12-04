@@ -1,31 +1,8 @@
-<div class="row justify-content-center" style="padding: 1.6%;">
-    <div class="col-8">
-        <div *ngIf="mARKETING">
-            <h2><span jhiTranslate="accessMuxApp.mARKETING.detail.title">MARKETING</span> {{mARKETING.id}}</h2>
-            <hr>
-            <jhi-alert-error></jhi-alert-error>
-            <dl class="row-md jh-entity-details">
-                <dt><span jhiTranslate="accessMuxApp.mARKETING.url">Url</span></dt>
-                <dd>
-                    <span>{{mARKETING.url}}</span>
-                </dd>
-                <dt><span jhiTranslate="accessMuxApp.mARKETING.description">Description</span></dt>
-                <dd>
-                    <span>{{mARKETING.description}}</span>
-                </dd>
-            </dl>
-
-            <button type="submit"
-                    (click)="previousState()"
-                    class="btn btn-info">
-                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
-            </button>
-
-            <button type="button"
-                    [routerLink]="['/marketing', mARKETING.id, 'edit']"
-                    class="btn btn-primary">
-                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
-            </button>
+<div class="frame">
+    <div *ngIf="mARKETING" >
+        <jhi-alert-error></jhi-alert-error>
+        <div class="resp-container">
+            <iframe class="resp-iframe" [src]="mARKETING.url | marketingSafe" gesture="media"  allow="encrypted-media" sandbox="allow-forms allow-same-origin allow-pointer-lock allow-scripts allow-popups allow-popups-to-escape-sandbox allow-modals allow-top-navigation" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true" scrolling="auto"></iframe>
         </div>
     </div>
 </div>
