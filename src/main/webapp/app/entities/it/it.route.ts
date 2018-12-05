@@ -54,7 +54,7 @@ export const iTRoute: Routes = [
             iT: ITResolve
         },
         data: {
-            authorities: ['ROLE_ADMIN', 'ROLE_IT'],
+            authorities: ['ROLE_ADMIN'],
             pageTitle: 'accessMuxApp.iT.home.title'
         },
         canActivate: [UserRouteAccessService]
@@ -66,7 +66,7 @@ export const iTRoute: Routes = [
             iT: ITResolve
         },
         data: {
-            authorities: ['ROLE_ADMIN', 'ROLE_IT'],
+            authorities: ['ROLE_ADMIN'],
             pageTitle: 'accessMuxApp.iT.home.title'
         },
         canActivate: [UserRouteAccessService]
@@ -81,7 +81,7 @@ export const iTPopupRoute: Routes = [
             iT: ITResolve
         },
         data: {
-            authorities: ['ROLE_ADMIN', 'ROLE_IT'],
+            authorities: ['ROLE_ADMIN'],
             pageTitle: 'accessMuxApp.iT.home.title'
         },
         canActivate: [UserRouteAccessService],

@@ -50,7 +50,7 @@ public class ITResource {
     @Timed
     public ResponseEntity<ITDTO> createIT(@Valid @RequestBody ITDTO iTDTO) throws URISyntaxException {
 
-        if (!(SecurityUtils.isCurrentUserInRole(IT) || SecurityUtils.isCurrentUserInRole(ADMIN))) {
+        if (!SecurityUtils.isCurrentUserInRole(ADMIN)) {
             return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert(ENTITY_NAME, "http.403","You need to be logged!")).body(null);
         }
 
@@ -77,7 +77,7 @@ public class ITResource {
     @Timed
     public ResponseEntity<ITDTO> updateIT(@Valid @RequestBody ITDTO iTDTO) throws URISyntaxException {
 
-        if (!(SecurityUtils.isCurrentUserInRole(IT) || SecurityUtils.isCurrentUserInRole(ADMIN))) {
+        if (!SecurityUtils.isCurrentUserInRole(ADMIN)) {
             return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert(ENTITY_NAME, "http.403","You need to be logged!")).body(null);
         }
 
@@ -137,7 +137,7 @@ public class ITResource {
     @Timed
     public ResponseEntity<Void> deleteIT(@PathVariable Long id) {
 
-        if (!(SecurityUtils.isCurrentUserInRole(IT) || SecurityUtils.isCurrentUserInRole(ADMIN))) {
+        if (!SecurityUtils.isCurrentUserInRole(ADMIN)) {
             return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert(ENTITY_NAME, "http.403","You need to be logged!")).body(null);
         }
 
