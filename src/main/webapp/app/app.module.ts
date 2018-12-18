@@ -19,7 +19,7 @@ import { AccessMuxEntityModule } from './entities/entity.module';
 import { StateStorageService } from 'app/core/auth/state-storage.service';
 import * as moment from 'moment';
 // jhipster-needle-angular-add-module-import JHipster will add new module here
-import { JhiMainComponent, NavbarComponent, FooterComponent, PageRibbonComponent, ActiveMenuDirective, ErrorComponent } from './layouts';
+import { JhiMainComponent, NavbarComponent, PageRibbonComponent, ActiveMenuDirective, ErrorComponent } from './layouts';
 
 @NgModule({
     imports: [
@@ -33,7 +33,7 @@ import { JhiMainComponent, NavbarComponent, FooterComponent, PageRibbonComponent
         AccessMuxEntityModule
         // jhipster-needle-angular-add-module JHipster will add new module here
     ],
-    declarations: [JhiMainComponent, NavbarComponent, ErrorComponent, PageRibbonComponent, ActiveMenuDirective, FooterComponent],
+    declarations: [JhiMainComponent, NavbarComponent, ErrorComponent, PageRibbonComponent, ActiveMenuDirective],
     providers: [
         {
             provide: HTTP_INTERCEPTORS,
