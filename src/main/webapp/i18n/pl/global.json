@@ -57,7 +57,7 @@
                 "authenticated": {
                     "prefix": "Jeśli chcesz się ",
                     "link": "zalogować",
-                    "suffix": ", możesz spróbować któregoś z domyślnych kont:<br/>- Administrator (login=\"admin\" i hasło=\"admin\") <br/>- Użytkownik (login=\"user\" i hasło=\"user\")."
+                    "suffix": ", możesz spróbować użyć konta:<br/>- Użytkownik (login=\"user\" i hasło=\"user\")."
                 },
                 "register": {
                     "noaccount": "Nie masz jeszcze konta?",
