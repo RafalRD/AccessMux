@@ -1,7 +1,7 @@
 <div style="padding: 1.6%;">
     <h2 id="page-heading">
         <span jhiTranslate="accessMuxApp.sALE.home.title">SALES</span>
-        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-sale" [routerLink]="['/sale/new']">
+        <button *jhiHasAnyAuthority="'ROLE_ADMIN'" id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-sale" [routerLink]="['/sale/new']">
             <fa-icon [icon]="'plus'"></fa-icon>
             <span  jhiTranslate="accessMuxApp.sALE.home.createLabel">
             Create new SALE
@@ -33,13 +33,15 @@
                             <fa-icon [icon]="'eye'"></fa-icon>
                             <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
                         </button>
-                        <button type="submit"
+                        <button *jhiHasAnyAuthority="'ROLE_ADMIN'"
+                                type="submit"
                                 [routerLink]="['/sale', sALE.id, 'edit']"
                                 class="btn btn-primary btn-sm">
                             <fa-icon [icon]="'pencil-alt'"></fa-icon>
                             <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
                         </button>
-                        <button type="submit"
+                        <button *jhiHasAnyAuthority="'ROLE_ADMIN'"
+                                type="submit"
                                 [routerLink]="['/', { outlets: { popup: 'sale/'+ sALE.id + '/delete'} }]"
                                 replaceUrl="true"
                                 queryParamsHandling="merge"

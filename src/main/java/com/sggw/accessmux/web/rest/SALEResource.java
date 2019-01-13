@@ -49,7 +49,7 @@ public class SALEResource {
     @PostMapping("/sales")
     @Timed
     public ResponseEntity<SALEDTO> createSALE(@Valid @RequestBody SALEDTO sALEDTO) throws URISyntaxException {
-        if (!(SecurityUtils.isCurrentUserInRole(SPRZEDAZ) || SecurityUtils.isCurrentUserInRole(ADMIN))) {
+        if (!SecurityUtils.isCurrentUserInRole(ADMIN)) {
             return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert(ENTITY_NAME, "http.403","You need to be logged!")).body(null);
         }
 
@@ -75,7 +75,7 @@ public class SALEResource {
     @PutMapping("/sales")
     @Timed
     public ResponseEntity<SALEDTO> updateSALE(@Valid @RequestBody SALEDTO sALEDTO) throws URISyntaxException {
-        if (!(SecurityUtils.isCurrentUserInRole(SPRZEDAZ) || SecurityUtils.isCurrentUserInRole(ADMIN))) {
+        if (!SecurityUtils.isCurrentUserInRole(ADMIN)) {
             return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert(ENTITY_NAME, "http.403","You need to be logged!")).body(null);
         }
         log.debug("REST request to update SALE : {}", sALEDTO);
@@ -131,7 +131,7 @@ public class SALEResource {
     @DeleteMapping("/sales/{id}")
     @Timed
     public ResponseEntity<Void> deleteSALE(@PathVariable Long id) {
-        if (!(SecurityUtils.isCurrentUserInRole(SPRZEDAZ) || SecurityUtils.isCurrentUserInRole(ADMIN))) {
+        if (!SecurityUtils.isCurrentUserInRole(ADMIN)) {
             return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert(ENTITY_NAME, "http.403","You need to be logged!")).body(null);
         }
 
