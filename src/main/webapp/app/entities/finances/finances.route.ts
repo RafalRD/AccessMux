@@ -54,7 +54,7 @@ export const fINANCESRoute: Routes = [
             fINANCES: FINANCESResolve
         },
         data: {
-            authorities: ['ROLE_ADMIN', 'ROLE_FINANSE'],
+            authorities: ['ROLE_ADMIN'],
             pageTitle: 'accessMuxApp.fINANCES.home.title'
         },
         canActivate: [UserRouteAccessService]
@@ -66,7 +66,7 @@ export const fINANCESRoute: Routes = [
             fINANCES: FINANCESResolve
         },
         data: {
-            authorities: ['ROLE_ADMIN', 'ROLE_FINANSE'],
+            authorities: ['ROLE_ADMIN'],
             pageTitle: 'accessMuxApp.fINANCES.home.title'
         },
         canActivate: [UserRouteAccessService]
@@ -81,7 +81,7 @@ export const fINANCESPopupRoute: Routes = [
             fINANCES: FINANCESResolve
         },
         data: {
-            authorities: ['ROLE_ADMIN', 'ROLE_FINANSE'],
+            authorities: ['ROLE_ADMIN'],
             pageTitle: 'accessMuxApp.fINANCES.home.title'
         },
         canActivate: [UserRouteAccessService],
