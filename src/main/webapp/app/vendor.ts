@@ -39,7 +39,8 @@ import {
     faTrashAlt,
     faAsterisk,
     faTasks,
-    faHome
+    faHome,
+    faShareAlt
 } from '@fortawesome/free-solid-svg-icons';
 
 import { faFacebook, faLinkedin, faGooglePlus, faTwitter, faInstagram } from '@fortawesome/free-brands-svg-icons';
@@ -49,6 +50,7 @@ library.add(faTwitter);
 library.add(faGooglePlus);
 library.add(faLinkedin);
 library.add(faInstagram);
+library.add(faShareAlt);
 // Adds the SVG icon to the library so you can use it in your page
 library.add(faUser);
 library.add(faSort);
